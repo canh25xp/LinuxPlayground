@@ -50,5 +50,8 @@ if [ ! -d /home/shared ]; then
     echo "Created /home/shared"
 fi
 
+# Cleanup one-time init files
+rm -rf /test /users.json dotfiles/
+
 echo "Starting SSH daemon..."
 exec /usr/sbin/sshd -D -e

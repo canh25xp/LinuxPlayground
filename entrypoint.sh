@@ -27,7 +27,7 @@ for ((i = 0; i < count; i++)); do
     home_dir="/home/$username"
     mkdir -p "$home_dir"
 
-    if [ ! -f "$home_dir/.profile" ]; then
+    if [ ! -d "$home_dir/.config" ]; then
         # First-time setup: copy all dotfiles
         cp -a /dotfiles/. "$home_dir/"
         echo "Seeded dotfiles for: $username"

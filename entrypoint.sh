@@ -26,6 +26,7 @@ for ((i = 0; i < count; i++)); do
     # but existing files are never overwritten (cp -n).
     home_dir="/home/$username"
     mkdir -p "$home_dir"
+    chmod 700 "$home_dir"
 
     if [ ! -d "$home_dir/.config" ]; then
         # First-time setup: copy all dotfiles

@@ -1,0 +1,41 @@
+# Show line numbers
+set linenumbers
+
+# Display current cursor position
+set constantshow
+
+# Enable mouse support
+set mouse
+
+# Convert tabs to spaces
+set tabstospaces
+
+# Tab width
+set tabsize 4
+
+# Auto-indent new lines
+set autoindent
+
+# Highlight matching brackets
+set matchbrackets "(<[{)>]}"
+
+# Enable backups
+set backup
+
+# Save search history
+set historylog
+
+# Don't wrap long lines automatically
+set nowrap
+
+# Allow scrolling beyond end of line
+set softwrap
+
+# Use modern title bar
+set minibar
+
+# Show help lines at bottom
+set stateflags
+
+# Ctrl+S to save
+bind ^S savefile main

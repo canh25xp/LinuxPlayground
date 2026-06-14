@@ -5,6 +5,7 @@ services:
     build:
       context: .
     container_name: playground
+    hostname: playground
     ports:
       - "10022:22"
     mem_limit: 4g

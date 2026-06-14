@@ -43,5 +43,12 @@ for ((i = 0; i < count; i++)); do
     chown -R "$username:$username" "$home_dir"
 done
 
+# Shared directory accessible by all users
+if [ ! -d /home/shared ]; then
+    mkdir -p /home/shared
+    chmod 1777 /home/shared # sticky bit: anyone can write, but only owner can delete their own files
+    echo "Created /home/shared"
+fi
+
 echo "Starting SSH daemon..."
 exec /usr/sbin/sshd -D -e

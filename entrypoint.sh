@@ -34,12 +34,6 @@ for ((i = 0; i < count; i++)); do
         echo "Seeded dotfiles for: $username"
     fi
 
-    # Ensure the test directory/README is present (safe to re-run)
-    if [ ! -f "$home_dir/test/README.md" ]; then
-        mkdir -p "$home_dir/test"
-        cp /test/REAME.md "$home_dir/test/README.md"
-    fi
-
     chown -R "$username:$username" "$home_dir"
 done
 
@@ -48,6 +42,8 @@ if [ ! -d /home/shared ]; then
     mkdir -p /home/shared
     chmod 1777 /home/shared # sticky bit: anyone can write, but only owner can delete their own files
     echo "Created /home/shared"
+    mkdir -p /home/shared/test
+    cp /test/REAME.md /home/shared/test/README.md
 fi
 
 # Cleanup one-time init files

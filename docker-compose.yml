@@ -9,3 +9,8 @@ services:
       - "10022:22"
     mem_limit: 4g
     cpus: 2
+    volumes:
+      - playground_home:/home
+
+volumes:
+  playground_home:

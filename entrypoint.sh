@@ -42,12 +42,10 @@ if [ ! -d /home/shared ]; then
     mkdir -p /home/shared
     chmod 1777 /home/shared # sticky bit: anyone can write, but only owner can delete their own files
     echo "Created /home/shared"
-    mkdir -p /home/shared/test
-    cp /test/REAME.md /home/shared/test/README.md
 fi
 
 # Cleanup one-time init files
-rm -rf /test /users.json dotfiles/
+rm -rf /users.json dotfiles/
 
 echo "Starting SSH daemon..."
 exec /usr/sbin/sshd -D -e

@@ -10,9 +10,6 @@ COPY users.json /users.json
 # Copy dotfiles
 COPY dotfiles/ /dotfiles/
 
-# Copy test
-COPY test/ /test/
-
 # Copy entrypoint script
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

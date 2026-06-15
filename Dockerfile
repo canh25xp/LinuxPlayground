@@ -2,6 +2,8 @@ FROM ghcr.io/canh25xp/dotfiles-debian:minimal-v2.0.2
 
 USER root
 
+RUN apt-get update && apt-get install -y --no-install-recommends nano
+
 # Copy users configuration
 COPY users.json /users.json
 

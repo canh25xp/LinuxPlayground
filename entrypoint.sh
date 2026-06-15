@@ -46,21 +46,21 @@ fi
 
 # Clone Linux101 into shared projects directory
 LINUX101_DIR="/home/shared/projects/Linux101"
-if [ ! -d "$LINUX101_DIR/.git" ]; then
+if [ ! -d "$LINUX101_DIR" ]; then
     echo "Cloning Linux101..."
     mkdir -p /home/shared/projects
-    git clone https://github.com/canh25xp/Linux101 "$LINUX101_DIR"
+    git clone --bare https://github.com/canh25xp/Linux101 "$LINUX101_DIR"
     echo "Cloned Linux101 to $LINUX101_DIR"
 else
-    echo "Linux101 already cloned, pulling latest..."
-    git -C "$LINUX101_DIR" pull
+    echo "Linux101 already cloned, fetching latest..."
+    git -C "$LINUX101_DIR" fetch
 fi
 # Make the projects directory world-readable and executable so all users can browse it
 chmod 755 /home/shared/projects
 # Give read+execute access to all files/dirs; add write only to the repo itself
 chmod -R a+rX "$LINUX101_DIR"
 
-git config --system --add safe.directory "$LINUX101_DIR/.git"
+git config --system --add safe.directory "$LINUX101_DIR"
 
 # Cleanup one-time init files
 rm -rf /users.json dotfiles/

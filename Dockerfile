@@ -19,6 +19,9 @@ RUN chmod +x /entrypoint.sh
 
 RUN mkdir -p /var/log && touch /var/log/lastlog && chmod 644 /var/log/lastlog
 
+# Install nano but set nvim as default editor
+RUN update-alternatives --set editor /usr/bin/nvim
+
 EXPOSE 22
 
 ENTRYPOINT ["/entrypoint.sh"]

@@ -64,7 +64,7 @@ fi
 # Give read+execute access to all files/dirs; add write only to the repo itself
 chmod -R a+rX "$LINUX101_DIR"
 
-git config --global --add safe.directory *
+git config --system --add safe.directory "*"
 
 # Cleanup one-time init files
 rm -rf /users.json dotfiles/

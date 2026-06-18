@@ -44,16 +44,24 @@ for ((i = 0; i < count; i++)); do
 done
 
 # Shared directory accessible by all users
-if [ ! -d /home/shared ]; then
-    mkdir -p /home/shared
-    chmod 1777 /home/shared # sticky bit: anyone can write, but only owner can delete their own files
-    echo "Created /home/shared"
+SHARED_DIR="/home/shared"
+if [ ! -d $SHARED_DIR ]; then
+    mkdir -p $SHARED_DIR
+    chmod 1777 $SHARED_DIR # sticky bit: anyone can write, but only owner can delete their own files
+    echo "Created $SHARED_DIR"
 fi
 
-LINUX101_DIR="/home/shared/repos/Linux101"
+REPOS_DIR="$SHARED_DIR/repos"
+if [ ! -d $REPOS_DIR ]; then
+    mkdir -p $REPOS_DIR
+    chown root:git-users $REPOS_DIR
+    chmod 2775 $REPOS_DIR
+    echo "Created $REPOS_DIR"
+fi
+
+LINUX101_DIR="$REPOS_DIR/Linux101"
 if [ ! -d "$LINUX101_DIR" ]; then
     echo "Cloning Linux101..."
-    mkdir -p /home/shared/repos
     git clone --bare https://github.com/canh25xp/Linux101 "$LINUX101_DIR"
     echo "Cloned Linux101 to $LINUX101_DIR"
 else

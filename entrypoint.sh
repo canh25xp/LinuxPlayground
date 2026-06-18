@@ -73,6 +73,7 @@ fi
 chmod -R a+rX "$LINUX101_DIR"
 
 git config --system --add safe.directory "*"
+git config --system core.sharedRepository true
 
 # Cleanup one-time init files
 rm -rf /users.json dotfiles/

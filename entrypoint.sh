@@ -59,19 +59,6 @@ if [ ! -d $REPOS_DIR ]; then
     echo "Created $REPOS_DIR"
 fi
 
-LINUX101_DIR="$REPOS_DIR/Linux101"
-if [ ! -d "$LINUX101_DIR" ]; then
-    echo "Cloning Linux101..."
-    git clone --bare https://github.com/canh25xp/Linux101 "$LINUX101_DIR"
-    echo "Cloned Linux101 to $LINUX101_DIR"
-else
-    echo "Linux101 already cloned, fetching latest..."
-    git -C "$LINUX101_DIR" fetch
-fi
-
-# Give read+execute access to all files/dirs; add write only to the repo itself
-chmod -R a+rX "$LINUX101_DIR"
-
 git config --system --add safe.directory "*"
 git config --system core.sharedRepository true
 
